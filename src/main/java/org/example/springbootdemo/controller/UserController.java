@@ -59,7 +59,7 @@ public class UserController {
         return "redirect:/register?success";
     }
 
-    @GetMapping("/userss")
+    @GetMapping("/users")
     public String users(Model model){
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);

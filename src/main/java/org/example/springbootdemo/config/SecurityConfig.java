@@ -41,9 +41,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth ->
                 auth.requestMatchers("/register").permitAll().requestMatchers("home")
-                        .permitAll().requestMatchers("users").permitAll() ); // Можно писать через запятую
+                        .permitAll().requestMatchers("userss").permitAll()
+                        .requestMatchers("/css/**").permitAll());
 
-//        .requestMatchers("/css/**").permitAll()  ДЛЯ ОТОБРАЖЕНИЯ CSS
 
         // LOGIN
         http.formLogin(formLogin ->

@@ -1,6 +1,7 @@
 package org.example.springbootdemo.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.example.springbootdemo.dto.UserDto;
 import org.example.springbootdemo.entity.user.AppUser;
@@ -56,5 +57,12 @@ public class UserController {
         }
         userService.save(userDto);
         return "redirect:/register?success";
+    }
+
+    @GetMapping("/userss")
+    public String users(Model model){
+        List<UserDto> users = userService.findAllUsers();
+        model.addAttribute("users", users);
+        return "users";
     }
 }
